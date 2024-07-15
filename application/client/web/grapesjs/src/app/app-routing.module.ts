@@ -33,6 +33,7 @@ const routes: Routes = [
 { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
 
 { path : 'screen297232', loadChildren: () => import('./screen297232/screen297232.module').then(m => m.Screen297232Module), canActivate: [AuthGuard] } , 
+{ path : 'grapesjstest', loadChildren: () => import('./grapesjstest/grapesjstest.module').then(m => m.GrapesjstestModule) } , 
 ];
 
 @NgModule({

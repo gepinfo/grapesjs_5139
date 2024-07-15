@@ -10,6 +10,7 @@ import {
     AdminController,
     CamundaController,
     systemcredentialmanagerController,
+    UserController,
     grapesjstestController
     } from './apicontroller';
 
@@ -21,6 +22,7 @@ let apisController = [
     new AdminController(),
     new CamundaController(),
     new systemcredentialmanagerController(),
+    new UserController(),
     new grapesjstestController()
     ]
 class App {
