@@ -251,7 +251,7 @@ services:
     image: systementry-5139
     container_name: systementry-5139
     ports: 
-      - 8033:8033
+      - 8035:8035
     env_file: .env
     depends_on:
       - mongo
@@ -272,7 +272,7 @@ services:
     image: grapejstest-5139
     container_name: grapejstest-5139
     ports: 
-      - 8034:8034
+      - 8036:8036
     env_file: .env
     depends_on:
       - mongo
