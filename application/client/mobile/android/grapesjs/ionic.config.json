@@ -1,0 +1,7 @@
+{
+  "name": "grapesjs",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

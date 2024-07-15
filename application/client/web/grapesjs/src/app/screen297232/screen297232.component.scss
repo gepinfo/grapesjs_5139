@@ -1,0 +1,55 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.gjs-row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+.gjs-cell {
+    min-height: 75px;
+    flex-grow: 1;
+    flex-basis: 100%;
+}
+
+#template-imam {
+    height: 751px;
+    top: 0px;
+    left: 0px;
+}
+
+#template-iuvx {
+    height: 674px;
+    top: 10px;
+    left: 10px;
+}
+
+#template-i2te {
+    color: black;
+    width: 1301px;
+    top: 20px;
+    left: 119px;
+    height: 520px;
+}
+
+#template-ioqzm {
+    height: 350px;
+    width: 615px;
+}
+
+@media (max-width: 768px) {
+    .gjs-row {
+        flex-wrap: wrap;
+    }
+}
