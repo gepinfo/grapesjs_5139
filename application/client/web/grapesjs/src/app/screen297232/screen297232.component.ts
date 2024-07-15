@@ -19,6 +19,10 @@ export class Screen297232Component implements OnInit {
         last_modified_date: '',
         grape_name: '',
         my_name: '',
+        enter_name: '',
+        parent_id: '',
+        id: '',
+        gephistoryid: '',
     }
 
 

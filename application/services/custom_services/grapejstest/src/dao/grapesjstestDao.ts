@@ -87,13 +87,18 @@ public async Update(grapesjstestData, callback){
     
     
     
-    this.grapesjstest.findOneAndUpdate({ _id: grapesjstestData._id }, grapesjstestData, { new: true }).then((result)	=>
+    grapesjstestData.last_modified_date = new Date(),
+                                                   this.grapesjstest.findOneAndUpdate({ _id: grapesjstestData._id }, grapesjstestData).then((result)	=>
      
              	{
 
         new CustomLogger().showLogger('info', 'Exit from grapesjstestDao.ts: Update');
 
-        
+         let newresult = result.toObject();  
+                                                     delete newresult._id;
+                                                     result.last_modified_date = "";
+                                                    let temp = new grapesjstestModel(newresult);
+                                                    temp.save();
 
         
         
@@ -110,7 +115,7 @@ public async GetEntityById(grapesjstestId, callback){
     
     
     
-    this.grapesjstest.findById(grapesjstestId).then((result)	=>
+    this.grapesjstest.find({"gephistoryid":grapesjstestId}).sort({last_modified_date: -1}).limit(1).then((result)	=>
      
              	{
 
@@ -181,6 +186,138 @@ public async GetNounCreatedBy(grapesjstestData, callback){
              	{
 
         new CustomLogger().showLogger('info', 'Exit from grapesjstestDao.ts: GetNounCreatedBy');
+
+        
+
+        
+        
+        callback(result);
+}).catch((error)=>{
+callback(error);
+});}
+public async GetAllTree(callback){
+    
+    new CustomLogger().showLogger('info', 'Enter into grapesjstestDao.ts: GetAllTree');
+
+    
+
+    
+    
+    
+    this.grapesjstest.aggregate(([ 
+                    {
+                        $match: {
+                            parent_id: null
+                        }
+                    },
+                    {
+                        $graphLookup: {
+                            from: "grapesjstest",
+                            startWith: "$id",
+                            connectFromField: "id",
+                            connectToField: "parent_id",
+                            depthField: "level",
+                            as: "children"
+                        }
+                    },
+                    {
+                        $unwind: {
+                            path: "$children",
+                            preserveNullAndEmptyArrays: true
+                        }
+                    },
+                    {
+                        $sort: {
+                            "children.level": -1
+                        }
+                    },
+                    {
+                        $group: {"_id":"$_id","parent_id":{"$first":"$parent_id"},"category":{"$first":"$category"},"children":{"$push":"$children"},"grape_name":{"$first":"$grape_name"},"my_name":{"$first":"$my_name"},"enter_name":{"$first":"$enter_name"},"isExpanded":{"$first":"$isExpanded"},"isSelected":{"$first":"$isSelected"},"isLeaf":{"$first":"$isLeaf"},"id":{"$first":"$id"},"gephistoryid":{"$first":"$gephistoryid"}}
+                    },
+                    {
+                        $addFields: {
+                            children: {
+                                $reduce: {
+                                    input: "$children",
+                                    initialValue: {
+                                        level: -1,
+                                        presentChild: [],
+                                        prevChild: []
+                                    },
+                                    in: {
+                                        $let: {
+                                            vars: {
+                                                prev: {
+                                                    $cond: [
+                                                        {
+                                                            $eq: [
+                                                                "$$value.level",
+                                                                "$$this.level"
+                                                            ]
+                                                        },
+                                                        "$$value.prevChild",
+                                                        "$$value.presentChild"
+                                                    ]
+                                                },
+                                                current: {
+                                                    $cond: [
+                                                        {
+                                                            $eq: [
+                                                                "$$value.level",
+                                                                "$$this.level"
+                                                            ]
+                                                        },
+                                                        "$$value.presentChild",
+                                                        []
+                                                    ]
+                                                }
+                                            },
+                                            in: {
+                                                level: "$$this.level",
+                                                prevChild: "$$prev",
+                                                presentChild: {
+                                                    $concatArrays: [
+                                                        "$$current",
+                                                        [
+                                                            {
+                                                                $mergeObjects: [
+                                                                    "$$this",
+                                                                    {
+                                                                        children: {
+                                                                            $filter: {
+                                                                                input: "$$prev",
+                                                                                as: "e",
+                                                                                cond: {
+                                                                                    $eq: [
+                                                                                        "$$e.parent_id",
+                                                                                        "$$this.id"
+                                                                                    ]
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        $addFields: {
+                            children: "$children.presentChild"
+                        }
+                    }
+                ])).then((result)	=>
+     
+             	{
+
+        new CustomLogger().showLogger('info', 'Exit from grapesjstestDao.ts: GetAllTree');
 
         
 

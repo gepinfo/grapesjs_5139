@@ -61,6 +61,15 @@ public GetNounCreatedBy(req: Request, res: Response) {
      res.json(response);
                 new CustomLogger().showLogger('info', 'Exit from grapesjstestController.ts: GetNounCreatedBy');
     })}
+public GetAllTree(req: Request, res: Response) {
+    new CustomLogger().guidLog(req);
+    
+    grapesjstest.GetAllTree(req, (response) => {
+                new CustomLogger().showLogger('info', 'Enter into grapesjstestController.ts: GetAllTree');
+     res.status(200);
+     res.json(response);
+                new CustomLogger().showLogger('info', 'Exit from grapesjstestController.ts: GetAllTree');
+    })}
 
 
 }

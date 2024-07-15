@@ -4,8 +4,9 @@ import { Routes } from './routes/Routes';
 import * as mongoose from 'mongoose';
 import * as cors from 'cors';
 import { WinstonLogger } from './config/WinstonLogger';
+import { Seed } from './seed';
 import { SCMService } from './apiservices/systemcredentialsmanager';
-const PORT = 8036;
+const PORT = 8038;
 
 class App {
 
@@ -45,6 +46,9 @@ class App {
             .then(res => { 
                 console.log('mongodb connected');
                 
+                let seed = new Seed();
+                seed.createTree();
+
             })
             .catch(err => { console.log('mongo error in connection:', err) });
     }

@@ -17,6 +17,7 @@ app.route('/grapesjstest').put(this.grapesjstest.Update);
 app.route('/grapesjstest/:id').get(this.grapesjstest.GetEntityById);
 app.route('/grapesjstest/get/search').get(this.grapesjstest.Search);
 app.route('/grapesjstest/userid/created_by').get(this.grapesjstest.GetNounCreatedBy);
+app.route('/grapesjstest/get/tree').get(this.grapesjstest.GetAllTree);
      }
 
 }

@@ -15,6 +15,8 @@ import * as jwt from 'jsonwebtoken';
 
 
 
+
+
 let grapesjstest = new grapesjstestDao();
 
 export class grapesjstestService {
@@ -86,6 +88,18 @@ public  GetNounCreatedBy(req: Request, callback){
      let  grapesjstestData = { created_by: req.query.createdby };
      grapesjstest.GetNounCreatedBy(grapesjstestData,(response)=>{
              new CustomLogger().showLogger('info', 'Exit from grapesjstestService.ts: GetNounCreatedBy')
+             
+             
+            callback(response);
+
+         });
+    }
+    
+public  GetAllTree(req: Request, callback){
+    new CustomLogger().showLogger('info', 'Enter into grapesjstestService.ts: GetAllTree')
+     
+     grapesjstest.GetAllTree((response)=>{
+             new CustomLogger().showLogger('info', 'Exit from grapesjstestService.ts: GetAllTree')
              
              
             callback(response);

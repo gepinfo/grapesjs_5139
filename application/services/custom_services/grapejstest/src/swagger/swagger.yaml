@@ -13,7 +13,7 @@ info:
       name: Apache 2.0
       url: https://www.apache.org/licenses/LICENSE-2.0.html
 servers:
-   - url: http://localhost:8036
+   - url: http://localhost:8038
      description: grapejstest
 tags:
 - name: grapesjstest
@@ -119,6 +119,20 @@ paths:
                description: Not Found
             500:
                description: Internal Server Error
+   "/grapesjstest/get/tree":
+      get:
+         tags:
+         -  grapesjstest
+         description: GpGetAllTree
+         responses:
+            200:
+               description: Success
+            400:
+               description: Bad Request
+            404:
+               description: Not Found
+            500:
+               description: Internal Server Error
 components:
    schemas:
       grapesjstest:
@@ -128,5 +142,29 @@ components:
                type: "string"
                description: Description
             my_name:
+               type: "string"
+               description: Description
+            enter_name:
+               type: "string"
+               description: Description
+            isExpanded:
+               type: "boolean"
+               description: Description
+            isSelected:
+               type: "boolean"
+               description: Description
+            isLeaf:
+               type: "boolean"
+               description: Description
+            parent_id:
+               type: "string"
+               description: Description
+            id:
+               type: "string"
+               description: Description
+            category:
+               type: "string"
+               description: Description
+            gephistoryid:
                type: "string"
                description: Description

@@ -1,20 +1,20 @@
-<svg version="1.1" baseProfile="full" width="334.0" height="291.0" viewbox="0 0 334 291" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events">
+<svg version="1.1" baseProfile="full" width="334.0" height="531.0" viewbox="0 0 334 531" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events">
 <desc >#.interface: fill=lightblue
 #.enumeration: fill=lightgreen
 #.type: fill=lightgray
-[&lt;interface&gt;grapesjstest|+created_date: { type: Date; };+created_by: { type: String; };+last_modified_by: { type: String; };+last_modified_date: { type: Date; };+grape_name: { type: String; };+my_name: { type: String; }|]</desc>
+[&lt;interface&gt;grapesjstest|+created_date: { type: Date; };+created_by: { type: String; };+last_modified_by: { type: String; };+last_modified_date: { type: Date; };+grape_name: { type: String; };+my_name: { type: String; };+enter_name: { type: String; };+isExpanded: { type: Boolean; };+isSelected: { type: Boolean; };+isLeaf: { type: Boolean; };+parent_id: { type: String; };+id: { type: String; };+category: { type: String; };+gephistoryid: { type: String; }|]</desc>
 <g stroke-width="1.0" text-align="left" font="12pt Helvetica, Arial, sans-serif" font-size="12pt" font-family="Helvetica" font-weight="normal" font-style="normal">
 <g font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="round" stroke="#33322E">
 <g stroke="transparent" fill="transparent">
-<rect x="0.0" y="0.0" height="291.0" width="334.0" stroke="none"></rect>
+<rect x="0.0" y="0.0" height="531.0" width="334.0" stroke="none"></rect>
 </g>
 <g transform="translate(8, 8)" fill="#33322E">
 <g transform="translate(20, 20)">
 <g data-name="grapesjstest">
 <g fill="lightblue" stroke="#33322E" data-name="grapesjstest">
-<rect x="0.0" y="0.0" height="235.0" width="278.0" data-name="grapesjstest"></rect>
+<rect x="0.0" y="0.0" height="475.0" width="278.0" data-name="grapesjstest"></rect>
 <path d="M0.0 31.0 L278.0 31.0" fill="none" data-name="grapesjstest"></path>
-<path d="M0.0 227.0 L278.0 227.0" fill="none" data-name="grapesjstest"></path>
+<path d="M0.0 467.0 L278.0 467.0" fill="none" data-name="grapesjstest"></path>
 </g>
 <g transform="translate(0, 0)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="grapesjstest">
 <g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="grapesjstest">
@@ -36,10 +36,26 @@
 <text x="0.0" y="148.5" stroke="none" data-name="grapesjstest">}</text>
 <text x="0.0" y="163.5" stroke="none" data-name="grapesjstest">+my_name: { type: String</text>
 <text x="0.0" y="178.5" stroke="none" data-name="grapesjstest">}</text>
+<text x="0.0" y="193.5" stroke="none" data-name="grapesjstest">+enter_name: { type: String</text>
+<text x="0.0" y="208.5" stroke="none" data-name="grapesjstest">}</text>
+<text x="0.0" y="223.5" stroke="none" data-name="grapesjstest">+isExpanded: { type: Boolean</text>
+<text x="0.0" y="238.5" stroke="none" data-name="grapesjstest">}</text>
+<text x="0.0" y="253.5" stroke="none" data-name="grapesjstest">+isSelected: { type: Boolean</text>
+<text x="0.0" y="268.5" stroke="none" data-name="grapesjstest">}</text>
+<text x="0.0" y="283.5" stroke="none" data-name="grapesjstest">+isLeaf: { type: Boolean</text>
+<text x="0.0" y="298.5" stroke="none" data-name="grapesjstest">}</text>
+<text x="0.0" y="313.5" stroke="none" data-name="grapesjstest">+parent_id: { type: String</text>
+<text x="0.0" y="328.5" stroke="none" data-name="grapesjstest">}</text>
+<text x="0.0" y="343.5" stroke="none" data-name="grapesjstest">+id: { type: String</text>
+<text x="0.0" y="358.5" stroke="none" data-name="grapesjstest">}</text>
+<text x="0.0" y="373.5" stroke="none" data-name="grapesjstest">+category: { type: String</text>
+<text x="0.0" y="388.5" stroke="none" data-name="grapesjstest">}</text>
+<text x="0.0" y="403.5" stroke="none" data-name="grapesjstest">+gephistoryid: { type: String</text>
+<text x="0.0" y="418.5" stroke="none" data-name="grapesjstest">}</text>
 
 </g>
 </g>
-<g transform="translate(0, 227)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="grapesjstest">
+<g transform="translate(0, 467)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="grapesjstest">
 <g transform="translate(8, 8)" fill="#33322E" data-name="grapesjstest">
 
 </g>

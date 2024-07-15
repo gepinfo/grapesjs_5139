@@ -19,6 +19,7 @@ this.router.put('/grapesjstest', this.GpUpdate);
 this.router.get('/grapesjstest/:id', this.GpGetEntityById);
 this.router.get('/grapesjstest/get/search', this.GpSearch);
 this.router.get('/grapesjstest/userid/created_by', this.GpGetNounCreatedBy);
+this.router.get('/grapesjstest/get/tree', this.GpGetAllTree);
         //#@gepdelimeterone@#
         //#@ssofacebookapiroute@#
         //#@ssogithubapiroute@#
@@ -81,6 +82,16 @@ public GpGetNounCreatedBy(req: Request, res: Response) {
         .then((res: any) => res.response.json()).then(result => {
             switch(req.baseUrl) { case '/mobile': res.send(result); break; case '/web': res.send(result); break; default: res.send(null); }
             new CustomLogger().showLogger('info', 'Exit from grapesjstestController.ts: GpGetNounCreatedBy');
+        }).catch(err => {
+            res.send(err);
+        });
+    }
+public GpGetAllTree(req: Request, res: Response) {
+            new CustomLogger().showLogger('info', 'Enter into grapesjstestController.ts: GpGetAllTree');
+        new ApiAdapter().get(Constant.GRAPEJSTESTURL + `${req.url}` )
+        .then((res: any) => res.response.json()).then(result => {
+            switch(req.baseUrl) { case '/mobile': res.send(result); break; case '/web': res.send(result); break; default: res.send(null); }
+            new CustomLogger().showLogger('info', 'Exit from grapesjstestController.ts: GpGetAllTree');
         }).catch(err => {
             res.send(err);
         });
