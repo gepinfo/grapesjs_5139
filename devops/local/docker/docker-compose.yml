@@ -169,7 +169,6 @@ services:
       - authproxy
       - securitymanager
       - systemcredentialmanager
-      - systementry
       - grapejstest
 
     networks:
@@ -246,33 +245,12 @@ services:
       - grapesjs_5139_net
 
 
-  systementry: 
-    build: ../../../application/services/custom_services/systementry
-    image: systementry-5139
-    container_name: systementry-5139
-    ports: 
-      - 8039:8039
-    env_file: .env
-    depends_on:
-      - mongo
-    networks:
-      - grapesjs_5139_net
-    logging:
-      driver: "fluentd"
-      options:
-        fluentd-address: 0.0.0.0:24224
-        fluentd-async-connect: "true"
-        tag: fluent
-    mem_limit: 300m
-    mem_reservation: 150m
-    cpus: 0.2
-
   grapejstest: 
     build: ../../../application/services/custom_services/grapejstest
     image: grapejstest-5139
     container_name: grapejstest-5139
     ports: 
-      - 8040:8040
+      - 8042:8042
     env_file: .env
     depends_on:
       - mongo

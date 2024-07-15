@@ -6,7 +6,7 @@ import * as cors from 'cors';
 import { WinstonLogger } from './config/WinstonLogger';
 import { Seed } from './seed';
 import { SCMService } from './apiservices/systemcredentialsmanager';
-const PORT = 8040;
+const PORT = 8042;
 
 class App {
 

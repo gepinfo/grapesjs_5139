@@ -54,17 +54,11 @@ service:
     type: NodePort
     port: 8080
     targetPort: 8080
-  systementry: 
-    name: systementry
-    type: NodePort
-    port: 8039
-    targetPort: 8039
-
   grapejstest: 
     name: grapejstest
     type: NodePort
-    port: 8040
-    targetPort: 8040
+    port: 8042
+    targetPort: 8042
 
 
 deployment:
@@ -91,10 +85,6 @@ deployment:
   desktop:
      name: desktop
      image: geppettotest/grapesjs-desktop:1.0
-  systementry: 
-    name: systementry
-    image: geppettotest/grapesjs-systementry:1.0
-
   grapejstest: 
     name: grapejstest
     image: geppettotest/grapesjs-grapejstest:1.0
